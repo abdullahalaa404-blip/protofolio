@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bloom American International School — Ras Al Khaimah</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1B2D5B;--navy2:#243570;--navy3:#162247;
+  --green:#2D6A4F;--green2:#40916C;--green3:#1B4332;
+  --white:#fff;--offwhite:#F7F8FC;--cream:#EFF2F9;
+  --text:#1a1a2e;--mid:#4A5568;--muted:#718096;
+  --border:#E2E8F0;
+  --shadow:0 4px 24px rgba(27,45,91,0.10);
+  --shadow-lg:0 12px 40px rgba(27,45,91,0.16);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;font-weight:300}
+
+/* ===== TOP BAR ===== */
+.topbar{background:var(--navy3);color:rgba(255,255,255,0.75);font-size:0.72rem;letter-spacing:0.06em;padding:0.45rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem}
+.topbar a{color:rgba(255,255,255,0.75);text-decoration:none;transition:color .2s}
+.topbar a:hover{color:#fff}
+.topbar-links{display:flex;gap:1.5rem;align-items:center}
+.topbar-sep{opacity:0.3}
+.tb-cta{background:var(--green);color:#fff!important;padding:0.3rem 1rem;border-radius:2px;font-weight:500}
+
+/* ===== NAV ===== */
+nav{position:sticky;top:0;z-index:200;background:var(--white);border-bottom:3px solid var(--navy);box-shadow:var(--shadow)}
+.nav-inner{max-width:1300px;margin:0 auto;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
+.nav-logo img{height:50px;width:auto}
+.nav-logo-text{}
+.nav-logo-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--navy);display:block;line-height:1.2;letter-spacing:0.04em}
+.nav-logo-sub{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--green);font-weight:500}
+.nav-menu{display:flex;gap:0;list-style:none;height:72px;align-items:stretch}
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-link{display:flex;align-items:center;gap:0.3rem;padding:0 1.1rem;font-size:0.8rem;font-weight:500;letter-spacing:0.04em;color:var(--text);text-decoration:none;height:100%;border-bottom:3px solid transparent;margin-bottom:-3px;transition:color .2s,border-color .2s;white-space:nowrap}
+.nav-link:hover,.nav-link.active{color:var(--navy);border-bottom-color:var(--green)}
+.nav-link svg{width:10px;height:10px;fill:currentColor;margin-top:1px}
+.dropdown{position:absolute;top:100%;left:0;background:var(--white);border-top:3px solid var(--green);box-shadow:var(--shadow-lg);min-width:220px;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .25s;z-index:300}
+.nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown a{display:block;padding:0.7rem 1.2rem;font-size:0.8rem;color:var(--mid);text-decoration:none;border-bottom:1px solid var(--border);transition:background .15s,color .15s}
+.dropdown a:last-child{border-bottom:none}
+.dropdown a:hover{background:var(--cream);color:var(--navy)}
+.nav-enrol{background:var(--navy);color:var(--white)!important;padding:0.55rem 1.3rem;border-radius:2px;font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-decoration:none;white-space:nowrap;transition:background .2s;margin-left:1rem}
+.nav-enrol:hover{background:var(--green)}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;color:var(--navy);font-size:1.5rem;padding:0.3rem}
+
+/* ===== HERO SLIDER ===== */
+.hero{position:relative;height:88vh;min-height:560px;overflow:hidden}
+.hero-slides{display:flex;height:100%;transition:transform .7s cubic-bezier(.4,0,.2,1)}
+.slide{min-width:100%;height:100%;position:relative;display:flex;align-items:center}
+.slide-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.slide-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(27,45,91,0.82) 0%,rgba(27,45,91,0.45) 55%,transparent 100%)}
+.slide-1 .slide-bg{background-image:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1600&q=80')}
+.slide-2 .slide-bg{background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1600&q=80')}
+.slide-3 .slide-bg{background-image:url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1600&q=80')}
+.slide-content{position:relative;z-index:1;padding:0 5%;max-width:680px}
+.slide-tag{display:inline-block;background:var(--green);color:#fff;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;padding:0.35rem 0.9rem;margin-bottom:1.2rem;border-radius:2px}
+.slide-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:1rem}
+.slide-title em{font-style:italic;color:#A8D5BE}
+.slide-desc{font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:2rem;max-width:480px}
+.slide-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-white-solid{background:#fff;color:var(--navy);font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:0.9rem 2rem;text-decoration:none;border-radius:2px;transition:background .2s,transform .2s;display:inline-block}
+.btn-white-solid:hover{background:var(--green);color:#fff;transform:translateY(-1px)}
+.btn-outline-white{border:1.5px solid rgba(255,255,255,0.7);color:#fff;font-size:0.82rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;padding:0.9rem 2rem;text-decoration:none;border-radius:2px;transition:all .2s;display:inline-block}
+.btn-outline-white:hover{background:rgba(255,255,255,0.15)}
+.hero-dots{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:0.6rem;z-index:10}
+.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;transition:background .2s,transform .2s}
+.dot.active{background:#fff;transform:scale(1.3)}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.4);color:#fff;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:background .2s;backdrop-filter:blur(4px)}
+.hero-arrow:hover{background:var(--green);border-color:var(--green)}
+.hero-prev{left:2%}.hero-next{right:2%}
+
+/* ===== QUICK LINKS BAR ===== */
+.quicklinks{background:var(--navy);padding:0}
+.quicklinks-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.ql-item{display:flex;align-items:center;gap:0.9rem;padding:1.4rem 1.8rem;border-right:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:background .2s;text-decoration:none}
+.ql-item:last-child{border-right:none}
+.ql-item:hover{background:var(--green3)}
+.ql-icon{font-size:1.5rem;flex-shrink:0}
+.ql-text{}
+.ql-label{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.1rem}
+.ql-title{font-size:0.88rem;font-weight:500;color:#fff}
+
+/* ===== SECTION WRAPPER ===== */
+.section{padding:5rem 5%}
+.section-inner{max-width:1300px;margin:0 auto}
+.section-alt{background:var(--offwhite)}
+.section-navy{background:var(--navy)}
+.section-navy *{color-adjust:exact}
+
+/* ===== SECTION HEADER ===== */
+.sec-head{text-align:center;margin-bottom:3.5rem}
+.sec-eyebrow{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:0.6rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--navy);line-height:1.2}
+.sec-title em{font-style:italic;color:var(--green)}
+.sec-line{width:3.5rem;height:3px;background:linear-gradient(to right,var(--navy),var(--green));margin:1rem auto 0;border-radius:2px}
+.sec-sub{font-size:0.95rem;color:var(--mid);max-width:560px;margin:1rem auto 0;line-height:1.8}
+
+/* ===== WELCOME SPLIT ===== */
+.welcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.welcome-text .sec-head{text-align:left}
+.welcome-text .sec-line{margin:1rem 0 0}
+.welcome-text p{font-size:0.93rem;color:var(--mid);line-height:1.9;margin-top:1.2rem}
+.welcome-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.w-stat{padding:1.2rem;border:1px solid var(--border);border-radius:3px;border-left:3px solid var(--navy)}
+.w-stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--navy);line-height:1}
+.w-stat-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:0.3rem}
+.welcome-img{position:relative}
+.welcome-img-main{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
+.welcome-img-badge{position:absolute;bottom:-1.5rem;left:-1.5rem;background:var(--green);color:#fff;padding:1.5rem;border-radius:3px;text-align:center;box-shadow:var(--shadow-lg)}
+.badge-big{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;line-height:1}
+.badge-small{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;margin-top:0.3rem;opacity:0.85}
+
+/* ===== WHY BLOOM CARDS ===== */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.why-card{background:var(--white);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:transform .3s,box-shadow .3s;cursor:pointer}
+.why-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.why-card-img{width:100%;aspect-ratio:4/3;background:#D1DCF0;display:flex;align-items:center;justify-content:center;font-size:3rem;overflow:hidden}
+.why-card-img.navy{background:linear-gradient(135deg,var(--navy),var(--navy2))}
+.why-card-img.green{background:linear-gradient(135deg,var(--green3),var(--green))}
+.why-card-img.light{background:linear-gradient(135deg,#EEF2FF,#D1DCF0)}
+.why-card-body{padding:1.3rem}
+.why-card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:0.4rem}
+.why-card-desc{font-size:0.8rem;color:var(--muted);line-height:1.65}
+.why-card-link{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.75rem;font-weight:500;color:var(--green);text-decoration:none;margin-top:0.8rem;letter-spacing:0.04em}
+.why-card-link::after{content:'→';transition:transform .2s}
+.why-card:hover .why-card-link::after{transform:translateX(4px)}
+
+/* ===== PRINCIPAL ===== */
+.principal-grid{display:grid;grid-template-columns:auto 1fr;gap:4rem;align-items:center;max-width:1000px;margin:0 auto}
+.principal-img-wrap{text-align:center}
+.principal-img{width:260px;height:320px;object-fit:cover;border-radius:4px;box-shadow:var(--shadow-lg)}
+.principal-img-placeholder{width:260px;height:320px;background:linear-gradient(135deg,var(--navy),var(--green));border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:var(--shadow-lg)}
+.principal-img-placeholder img{width:140px;height:auto;filter:brightness(0) invert(1);opacity:.85;margin-bottom:1rem}
+.principal-img-name{font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.principal-eyebrow{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:0.5rem}
+.principal-quote{font-family:'Playfair Display',serif;font-size:1.05rem;font-style:italic;color:var(--mid);line-height:1.85;position:relative;padding-left:1.5rem;border-left:3px solid var(--green)}
+.principal-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--navy);margin-top:1.8rem}
+.principal-role{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-top:0.2rem}
+
+/* ===== PROGRAMMES TABS ===== */
+.prog-tabs{display:flex;border-bottom:2px solid var(--border);margin-bottom:3rem;gap:0;overflow-x:auto}
+.prog-tab{padding:1rem 2rem;font-size:0.82rem;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:color .2s,border-color .2s;background:none;border-top:none;border-left:none;border-right:none}
+.prog-tab.active,.prog-tab:hover{color:var(--navy);border-bottom-color:var(--navy)}
+.prog-pane{display:none;animation:fadeIn .4s ease}
+.prog-pane.active{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.prog-pane-text h3{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:600;color:var(--navy);margin-bottom:0.6rem}
+.prog-grade-badge{display:inline-block;background:var(--navy);color:#fff;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem}
+.prog-pane-text p{font-size:0.9rem;color:var(--mid);line-height:1.85;margin-bottom:1rem}
+.prog-tags{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:1rem}
+.prog-tag{font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--navy);background:var(--cream);border:1px solid var(--border);padding:0.3rem 0.7rem;border-radius:2px}
+.prog-pane-img{aspect-ratio:4/3;border-radius:4px;overflow:hidden;box-shadow:var(--shadow)}
+.prog-pane-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem}
+.pane-img-1{background:linear-gradient(135deg,#D8F3DC,#B7E4C7)}
+.pane-img-2{background:linear-gradient(135deg,#DBEAFE,#BFDBFE)}
+.pane-img-3{background:linear-gradient(135deg,#EDE9FE,#DDD6FE)}
+.pane-img-4{background:linear-gradient(135deg,#FEF9C3,#FDE68A)}
+
+/* ===== VALUES ===== */
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.val-card{padding:1.8rem;border-radius:4px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);transition:background .2s}
+.val-card:hover{background:rgba(255,255,255,0.1)}
+.val-icon{font-size:1.8rem;margin-bottom:1rem}
+.val-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:0.4rem}
+.val-desc{font-size:0.8rem;color:rgba(255,255,255,0.6);line-height:1.65}
+
+/* ===== FACILITIES GALLERY ===== */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:1rem}
+.gallery-item{border-radius:3px;overflow:hidden;position:relative;cursor:pointer}
+.gallery-item.wide{grid-column:span 2}
+.gallery-img{width:100%;height:200px;object-fit:cover;display:flex;align-items:center;justify-content:center;font-size:2.5rem;transition:transform .35s}
+.gallery-item:hover .gallery-img{transform:scale(1.04)}
+.g1{background:linear-gradient(135deg,#1B2D5B,#243570);height:220px}
+.g2{background:linear-gradient(135deg,#2D6A4F,#40916C);height:220px}
+.g3{background:linear-gradient(135deg,#374151,#4B5563);height:220px}
+.g4{background:linear-gradient(135deg,#4C1D95,#5B21B6);height:220px}
+.g5{background:linear-gradient(135deg,#7C2D12,#9A3412);height:220px}
+.g6{background:linear-gradient(135deg,#064E3B,#065F46);height:220px}
+.g7{background:linear-gradient(135deg,#1E3A5F,#1B2D5B);height:220px}
+.g8{background:linear-gradient(135deg,#3D1A78,#4C1D95);height:220px}
+.gallery-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);padding:1rem 0.8rem 0.6rem;font-size:0.78rem;font-weight:500;color:#fff;letter-spacing:0.04em}
+
+/* ===== ADMISSIONS STRIP ===== */
+.adm-strip{background:linear-gradient(135deg,var(--navy3) 0%,var(--navy) 50%,var(--green3) 100%);padding:4rem 5%;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.adm-strip-text{}
+.adm-eyebrow{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:0.5rem}
+.adm-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:#fff;margin-bottom:0.4rem}
+.adm-sub{font-size:0.88rem;color:rgba(255,255,255,.7)}
+.adm-strip-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-green-solid{background:var(--green);color:#fff;font-size:0.8rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;padding:0.95rem 2rem;text-decoration:none;border-radius:2px;transition:background .2s;white-space:nowrap;display:inline-block}
+.btn-green-solid:hover{background:var(--green2)}
+.btn-white-outline{border:1.5px solid rgba(255,255,255,.5);color:#fff;font-size:0.8rem;font-weight:400;letter-spacing:0.07em;text-transform:uppercase;padding:0.9rem 2rem;text-decoration:none;border-radius:2px;transition:all .2s;display:inline-block;white-space:nowrap}
+.btn-white-outline:hover{background:rgba(255,255,255,.1)}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-wrap{position:relative;overflow:hidden}
+.test-slides{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.test-slide{min-width:100%;padding:0 1rem}
+.test-card{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:2.5rem;max-width:780px;margin:0 auto;border-left:4px solid var(--navy)}
+.test-stars{color:#F59E0B;font-size:1rem;margin-bottom:1rem;letter-spacing:2px}
+.test-text{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:var(--mid);line-height:1.8;margin-bottom:1.5rem}
+.test-author{display:flex;align-items:center;gap:1rem}
+.test-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--green));display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0}
+.test-name{font-weight:500;color:var(--navy);font-size:0.9rem}
+.test-role{font-size:0.75rem;color:var(--muted);margin-top:0.1rem}
+.test-controls{display:flex;justify-content:center;gap:0.5rem;margin-top:1.5rem}
+.test-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .2s}
+.test-dot.active{background:var(--navy)}
+
+/* ===== CONTACT ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:5rem;align-items:start}
+.contact-map{aspect-ratio:4/3;background:linear-gradient(135deg,#EEF2FF,#D1DCF0);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:4rem;border:1px solid var(--border);overflow:hidden}
+.contact-detail{display:flex;gap:0.9rem;align-items:flex-start;margin-bottom:1.2rem}
+.c-icon{width:2.2rem;height:2.2rem;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.8rem;flex-shrink:0}
+.c-label{font-size:0.63rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.15rem}
+.c-val{font-size:0.86rem;color:var(--text)}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:0.3rem}
+.fl{font-size:0.63rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.fi,.fs,.ft{font-family:'DM Sans',sans-serif;font-size:0.86rem;font-weight:300;color:var(--text);background:var(--offwhite);border:1px solid var(--border);padding:0.8rem 1rem;outline:none;transition:border-color .2s;width:100%;border-radius:2px}
+.fi:focus,.fs:focus,.ft:focus{border-color:var(--navy)}
+.ft{resize:vertical;min-height:100px}
+.f-sub{font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#fff;background:var(--navy);border:none;padding:1rem 2.2rem;cursor:pointer;transition:background .2s;border-radius:2px;width:100%}
+.f-sub:hover{background:var(--green)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--navy3)}
+.footer-top{max-width:1300px;margin:0 auto;padding:3.5rem 5% 2.5rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+.f-brand-logo{display:flex;align-items:center;gap:0.7rem;margin-bottom:0.8rem}
+.f-brand-logo img{height:44px;width:auto;filter:brightness(0) invert(1);opacity:.85}
+.f-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#fff;letter-spacing:0.04em}
+.f-brand-sub{font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:#7EC8A0}
+.f-desc{font-size:0.78rem;color:rgba(255,255,255,.4);line-height:1.75;max-width:260px;margin-bottom:1.2rem}
+.f-socials{display:flex;gap:0.6rem}
+.f-social{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:0.9rem;text-decoration:none;transition:background .2s,color .2s}
+.f-social:hover{background:var(--green);color:#fff}
+.f-col-title{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,.4);font-weight:600;margin-bottom:1rem}
+.f-col-links{display:flex;flex-direction:column;gap:0.55rem}
+.f-col-links a{font-size:0.8rem;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+.f-col-links a:hover{color:#fff}
+.footer-btm{border-top:1px solid rgba(255,255,255,.08);max-width:1300px;margin:0 auto;padding:1.2rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem}
+.f-copy{font-size:0.7rem;color:rgba(255,255,255,.25)}
+.f-policies{display:flex;gap:1.5rem}
+.f-policies a{font-size:0.7rem;color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s}
+.f-policies a:hover{color:rgba(255,255,255,.6)}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ===== SUCCESS MSG ===== */
+.success-msg{display:none;padding:2rem;background:var(--offwhite);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:3px}
+.success-msg p:first-child{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:0.4rem}
+.success-msg p:last-child{font-size:0.82rem;color:var(--muted)}
+
+/* ===== MOBILE MENU ===== */
+.nav-menu.mob-open{
+  display:flex!important;
+  position:fixed;
+  top:72px;left:0;right:0;
+  height:calc(100vh - 72px);
+  flex-direction:column;
+  background:#fff;
+  overflow-y:auto;
+  z-index:500;
+  padding:0;
+  box-shadow:0 8px 32px rgba(27,45,91,0.15);
+}
+.nav-menu.mob-open .nav-item{
+  border-bottom:1px solid #E2E8F0;
+  flex-direction:column;
+  align-items:flex-start;
+  height:auto;
+}
+.nav-menu.mob-open .nav-link{
+  width:100%;
+  height:auto!important;
+  padding:1rem 1.5rem!important;
+  font-size:1rem!important;
+  border-bottom:none!important;
+  margin-bottom:0!important;
+  display:flex!important;
+  justify-content:space-between;
+  align-items:center;
+}
+.nav-menu.mob-open .nav-link.drop-active{
+  color:var(--navy);
+  background:var(--cream);
+}
+.nav-menu.mob-open .dropdown{
+  position:static!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+  box-shadow:none!important;
+  border-top:none!important;
+  border-left:3px solid var(--green);
+  width:100%;
+  display:none;
+  padding:0;
+  margin:0;
+}
+.nav-menu.mob-open .dropdown.mob-drop-open{
+  display:block!important;
+}
+.nav-menu.mob-open .dropdown a{
+  padding:0.85rem 2rem!important;
+  font-size:0.9rem!important;
+  border-bottom:1px solid #F1F5F9!important;
+}
+.nav-menu.mob-open .nav-link svg{
+  transition:transform .2s;
+}
+.nav-menu.mob-open .nav-link.drop-active svg{
+  transform:rotate(180deg);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .why-grid,.footer-top{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gallery-item.wide{grid-column:span 1}
+  .prog-pane.active{grid-template-columns:1fr}
+  .prog-pane-img{display:none}
+}
+@media(max-width:768px){
+  .nav-menu,.nav-enrol{display:none}
+  .menu-btn{display:block}
+  .welcome-grid,.principal-grid,.contact-grid{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .quicklinks-inner{grid-template-columns:1fr 1fr}
+  .adm-strip{flex-direction:column;text-align:center}
+  .adm-strip-actions{justify-content:center}
+  .topbar{flex-direction:column;gap:0.3rem;text-align:center}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .principal-grid{justify-items:center}
+}
+@media(max-width:480px){
+  .why-grid,.values-grid,.gallery-grid,.quicklinks-inner{grid-template-columns:1fr}
+  .hero{height:70vh}
+  .footer-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div>📍 Ras Al Khaimah, UAE &nbsp;|&nbsp; ✉️ admissions@bloomprivateschool.ae &nbsp;|&nbsp; 📞 +971 XX XXX XXXX</div>
+  <div class="topbar-links">
+    <a href="#contact">Get a Call Back</a>
+    <span class="topbar-sep">|</span>
+    <a href="#contact">Parent Portal</a>
+    <span class="topbar-sep">|</span>
+    <a href="#contact" class="tb-cta">Enrol Online</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="logo.png" alt="Bloom AIS Logo"/>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">BLOOM</span>
+        <span class="nav-logo-sub">American Int. School</span>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="#about" class="nav-link">About Us <svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></a>
+        <div class="dropdown">
+          <a href="#about">Welcome from the Principal</a>
+          <a href="#about">Vision & Mission</a>
+          <a href="#about">Our Values</a>
+          <a href="#facilities">Campus & Facilities</a>
+          <a href="#contact">Location</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#programmes" class="nav-link">Curriculum <svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></a>
+        <div class="dropdown">
+          <a href="#programmes">Early Years (KG1–KG2)</a>
+          <a href="#programmes">Elementary (Grades 1–5)</a>
+          <a href="#programmes">Middle School (Grades 6–8)</a>
+          <a href="#programmes">High School (Grades 9–12)</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#contact" class="nav-link">Admissions <svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></a>
+        <div class="dropdown">
+          <a href="#contact">Admissions Process</a>
+          <a href="#contact">Enquire Now</a>
+          <a href="#contact">School Tours</a>
+          <a href="#contact">Academic Calendar</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="#facilities" class="nav-link">Facilities</a></li>
+      <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-enrol">Enrol Now</a>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+</nav>
+
+<!-- HERO SLIDER -->
+<section class="hero" id="home">
+  <div class="hero-slides" id="heroSlides">
+    <div class="slide slide-1">
+      <div class="slide-bg"></div>
+      <div class="slide-content">
+        <span class="slide-tag">Admissions Open · 2026–2027</span>
+        <h1 class="slide-title">Building Lifelong<br>Opportunities for<br><em>Outstanding Minds</em></h1>
+        <p class="slide-desc">Opening 30 August 2026 — an exceptional American curriculum school from KG1 to Grade 12 in Ras Al Khaimah.</p>
+        <div class="slide-actions">
+          <a href="#contact" class="btn-white-solid">Enrol Now</a>
+          <a href="#about" class="btn-outline-white">Discover Our School</a>
+        </div>
+      </div>
+    </div>
+    <div class="slide slide-2">
+      <div class="slide-bg"></div>
+      <div class="slide-content">
+        <span class="slide-tag">American Curriculum · KG1–Grade 12</span>
+        <h1 class="slide-title">Inspiring Future<br><em>Leaders</em> of<br>Tomorrow</h1>
+        <p class="slide-desc">Student-centered learning that builds critical thinking, creativity, and a lifelong love of discovery.</p>
+        <div class="slide-actions">
+          <a href="#programmes" class="btn-white-solid">Our Programmes</a>
+          <a href="#contact" class="btn-outline-white">Book a Tour</a>
+        </div>
+      </div>
+    </div>
+    <div class="slide slide-3">
+      <div class="slide-bg"></div>
+      <div class="slide-content">
+        <span class="slide-tag">World-Class Facilities</span>
+        <h1 class="slide-title">Where Every<br>Child <em>Blooms</em><br>and Flourishes</h1>
+        <p class="slide-desc">State-of-the-art campus with innovation labs, sports facilities, and creative arts spaces.</p>
+        <div class="slide-actions">
+          <a href="#facilities" class="btn-white-solid">See Our Campus</a>
+          <a href="#contact" class="btn-outline-white">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="hero-arrow hero-prev" onclick="moveSlide(-1)">‹</button>
+  <button class="hero-arrow hero-next" onclick="moveSlide(1)">›</button>
+  <div class="hero-dots" id="heroDots">
+    <div class="dot active" onclick="goSlide(0)"></div>
+    <div class="dot" onclick="goSlide(1)"></div>
+    <div class="dot" onclick="goSlide(2)"></div>
+  </div>
+</section>
+
+<!-- QUICK LINKS -->
+<div class="quicklinks">
+  <div class="quicklinks-inner">
+    <a href="#contact" class="ql-item">
+      <span class="ql-icon">📋</span>
+      <div class="ql-text"><div class="ql-label">2026–2027</div><div class="ql-title">Admissions Open</div></div>
+    </a>
+    <a href="#programmes" class="ql-item">
+      <span class="ql-icon">📚</span>
+      <div class="ql-text"><div class="ql-label">KG1 to Grade 12</div><div class="ql-title">American Curriculum</div></div>
+    </a>
+    <a href="#facilities" class="ql-item">
+      <span class="ql-icon">🏫</span>
+      <div class="ql-text"><div class="ql-label">Ras Al Khaimah</div><div class="ql-title">Our Campus</div></div>
+    </a>
+    <a href="#contact" class="ql-item">
+      <span class="ql-icon">📅</span>
+      <div class="ql-text"><div class="ql-label">Opening</div><div class="ql-title">30 August 2026</div></div>
+    </a>
+  </div>
+</div>
+
+<!-- WELCOME / ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="welcome-grid">
+      <div class="welcome-text reveal">
+        <div class="sec-head">
+          <div class="sec-eyebrow">Welcome to Bloom</div>
+          <h2 class="sec-title">Inspiring Future Leaders in <em>Ras Al Khaimah</em></h2>
+          <div class="sec-line" style="margin:1rem 0 0"></div>
+        </div>
+        <p>At Bloom American International School, we are committed to delivering an outstanding American curriculum education aligned with international standards. We believe every child has the potential to thrive, lead, and make a meaningful impact on the world.</p>
+        <p>Our mission is to nurture students' wellbeing, character, and personal growth while embedding UAE values, culture, and national identity — creating a safe, inclusive, and inspiring environment that prepares every student for university success and the careers of tomorrow.</p>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;color:var(--navy);font-size:1rem;margin-top:1.5rem;">"At Bloom, we nurture curiosity, inspire excellence, and empower students to thrive in an ever-changing world."</p>
+        <div class="welcome-stats">
+          <div class="w-stat"><div class="w-stat-num">KG1–12</div><div class="w-stat-label">Full School Journey</div></div>
+          <div class="w-stat"><div class="w-stat-num">Aug '26</div><div class="w-stat-label">Opening Date</div></div>
+          <div class="w-stat"><div class="w-stat-num">USA</div><div class="w-stat-label">Curriculum</div></div>
+          <div class="w-stat"><div class="w-stat-num">RAK</div><div class="w-stat-label">Location</div></div>
+        </div>
+      </div>
+      <div class="welcome-img reveal">
+        <div class="principal-img-placeholder" style="width:100%;height:460px;border-radius:4px">
+          <img src="logo.png" alt="Bloom Logo" style="width:180px;height:auto;filter:brightness(0) invert(1);opacity:.85;margin-bottom:1.2rem"/>
+          <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:0.06em">BLOOM</div>
+          <div style="font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:0.3rem">American International School</div>
+        </div>
+        <div class="welcome-img-badge">
+          <div class="badge-big">RAK</div>
+          <div class="badge-small">Ras Al Khaimah<br>UAE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BLOOM -->
+<section class="section section-alt" id="why">
+  <div class="section-inner">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Why Bloom?</div>
+      <h2 class="sec-title">Excellence in Every <em>Dimension</em></h2>
+      <div class="sec-line"></div>
+      <p class="sec-sub">We prepare students not just for exams, but for life — building confident, compassionate, and capable leaders.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-card-img navy">🎓</div>
+        <div class="why-card-body">
+          <div class="why-card-title">Academic Excellence</div>
+          <div class="why-card-desc">Rigorous American curriculum with continuous assessment, ensuring every student reaches their full academic potential.</div>
+          <a href="#programmes" class="why-card-link">Learn More</a>
+        </div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-card-img green">🤖</div>
+        <div class="why-card-body">
+          <div class="why-card-title">Innovation & Technology</div>
+          <div class="why-card-desc">Coding, robotics, STEM labs, and digital learning fully integrated throughout the curriculum.</div>
+          <a href="#facilities" class="why-card-link">Learn More</a>
+        </div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-card-img light" style="font-size:2.5rem;background:linear-gradient(135deg,#FEF3C7,#FDE68A)">🌟</div>
+        <div class="why-card-body">
+          <div class="why-card-title">Student Wellbeing</div>
+          <div class="why-card-desc">A nurturing environment where every student feels safe, included, valued, and supported to grow.</div>
+          <a href="#about" class="why-card-link">Learn More</a>
+        </div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-card-img" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5)">🌍</div>
+        <div class="why-card-body">
+          <div class="why-card-title">UAE & Global Values</div>
+          <div class="why-card-desc">UAE national identity and culture woven into an international mindset, creating true global citizens.</div>
+          <a href="#about" class="why-card-link">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPAL -->
+<section class="section" id="principal">
+  <div class="section-inner">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Principal's Welcome</div>
+      <h2 class="sec-title">A Word From Our <em>Principal</em></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="principal-grid reveal">
+      <div class="principal-img-wrap">
+        <div class="principal-img-placeholder">
+          <img src="logo.png" alt="Bloom Logo"/>
+          <div class="principal-img-name">Bloom AIS</div>
+        </div>
+      </div>
+      <div>
+        <div class="principal-eyebrow">Welcome Message</div>
+        <blockquote class="principal-quote">
+          Welcome to Bloom American International School — a place where students are inspired to dream big, achieve excellence, and become confident future leaders.<br><br>
+          At Bloom, we believe education is not only about academic achievement but also about developing character, wellbeing, creativity, and a passion for lifelong learning. Our dedicated educators work in partnership with families to ensure every student feels valued, supported, and empowered to reach their full potential.<br><br>
+          We look forward to welcoming you to our Bloom family and beginning this exciting journey together.
+        </blockquote>
+        <div class="principal-name">The Principal</div>
+        <div class="principal-role">Bloom American International School · Ras Al Khaimah</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMMES TABS -->
+<section class="section section-alt" id="programmes">
+  <div class="section-inner">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Academic Programmes</div>
+      <h2 class="sec-title">Your Child's Complete <em>Learning Journey</em></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="prog-tabs reveal">
+      <button class="prog-tab active" onclick="showProg(0,this)">Early Years</button>
+      <button class="prog-tab" onclick="showProg(1,this)">Elementary School</button>
+      <button class="prog-tab" onclick="showProg(2,this)">Middle School</button>
+      <button class="prog-tab" onclick="showProg(3,this)">High School</button>
+    </div>
+    <div class="prog-pane active" id="pane-0">
+      <div class="prog-pane-text">
+        <div class="prog-grade-badge">KG1 – KG2</div>
+        <h3>Early Years Foundation</h3>
+        <p>A joyful and nurturing environment where children learn through play, exploration, and hands-on experiences. Focused on the whole child — building communication, creativity, and a genuine love of learning from day one.</p>
+        <p>Children develop confidence, independence, and foundational skills in literacy and numeracy through carefully designed, child-led activities supported by specialist teachers.</p>
+        <div class="prog-tags"><span class="prog-tag">Early Literacy & Numeracy</span><span class="prog-tag">Communication & Language</span><span class="prog-tag">Creativity & Imagination</span><span class="prog-tag">Social & Emotional Growth</span><span class="prog-tag">Inquiry-Based Learning</span><span class="prog-tag">Physical Development</span></div>
+      </div>
+      <div class="prog-pane-img"><div class="prog-pane-img-inner pane-img-1">🌱</div></div>
+    </div>
+    <div class="prog-pane" id="pane-1">
+      <div class="prog-pane-text">
+        <div class="prog-grade-badge">Grades 1 – 5</div>
+        <h3>Elementary School</h3>
+        <p>Students build strong academic foundations while developing curiosity, confidence, and independence. Specialist educators deliver engaging, student-centred lessons across all core subjects and enrichment areas.</p>
+        <p>The curriculum balances rigorous core academics with arts, sports, technology, and innovation — ensuring every child discovers their strengths and passions.</p>
+        <div class="prog-tags"><span class="prog-tag">English Language Arts</span><span class="prog-tag">Mathematics</span><span class="prog-tag">Science</span><span class="prog-tag">Social Studies</span><span class="prog-tag">Arabic & Islamic Education</span><span class="prog-tag">Technology & Innovation</span><span class="prog-tag">Arts & PE</span></div>
+      </div>
+      <div class="prog-pane-img"><div class="prog-pane-img-inner pane-img-2">📖</div></div>
+    </div>
+    <div class="prog-pane" id="pane-2">
+      <div class="prog-pane-text">
+        <div class="prog-grade-badge">Grades 6 – 8</div>
+        <h3>Middle School</h3>
+        <p>Students are challenged academically while developing leadership, responsibility, and critical thinking. STEM innovation projects, collaboration, and personal growth programmes prepare students for the demands of high school.</p>
+        <p>Middle school is a key transitional phase — we recognise this and provide strong pastoral care alongside ambitious academic goals.</p>
+        <div class="prog-tags"><span class="prog-tag">Advanced Academic Skills</span><span class="prog-tag">STEM & Innovation</span><span class="prog-tag">Student Leadership</span><span class="prog-tag">Collaboration</span><span class="prog-tag">Wellbeing & Pastoral Care</span></div>
+      </div>
+      <div class="prog-pane-img"><div class="prog-pane-img-inner pane-img-3">🔬</div></div>
+    </div>
+    <div class="prog-pane" id="pane-3">
+      <div class="prog-pane-text">
+        <div class="prog-grade-badge">Grades 9 – 12</div>
+        <h3>High School</h3>
+        <p>Rigorous academics, leadership opportunities, and personalised pathways prepare students for the world's best universities. University counselling, advanced electives, entrepreneurship, and community service shape globally aware graduates.</p>
+        <p>Our dedicated college counsellors guide students through every stage of the university application process, from shortlisting to acceptance.</p>
+        <div class="prog-tags"><span class="prog-tag">College & Career Readiness</span><span class="prog-tag">Advanced Electives</span><span class="prog-tag">University Counselling</span><span class="prog-tag">Entrepreneurship</span><span class="prog-tag">Community Service</span><span class="prog-tag">Global Awareness</span></div>
+      </div>
+      <div class="prog-pane-img"><div class="prog-pane-img-inner pane-img-4">🎓</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES (dark) -->
+<section class="section section-navy" id="values">
+  <div class="section-inner">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow" style="color:#7EC8A0">Our Core Values</div>
+      <h2 class="sec-title" style="color:#fff">The Principles That <em style="color:#7EC8A0">Guide</em> Us</h2>
+      <div class="sec-line" style="background:linear-gradient(to right,#fff,#7EC8A0)"></div>
+      <p class="sec-sub" style="color:rgba(255,255,255,.6)">Nine values shape every decision, relationship, and learning experience at Bloom.</p>
+    </div>
+    <div class="values-grid reveal">
+      <div class="val-card"><div class="val-icon">⭐</div><div class="val-title">Excellence</div><div class="val-desc">Striving for the highest standards in everything — academically and personally.</div></div>
+      <div class="val-card"><div class="val-icon">🤝</div><div class="val-title">Integrity</div><div class="val-desc">Acting with honesty, transparency, and strong moral principles at all times.</div></div>
+      <div class="val-card"><div class="val-icon">🌟</div><div class="val-title">Respect</div><div class="val-desc">Valuing every individual's dignity, background, and unique contribution.</div></div>
+      <div class="val-card"><div class="val-icon">💡</div><div class="val-title">Innovation</div><div class="val-desc">Embracing creativity and new ideas to solve problems and drive progress.</div></div>
+      <div class="val-card"><div class="val-icon">🎯</div><div class="val-title">Responsibility</div><div class="val-desc">Taking ownership of our actions and their impact on others and our world.</div></div>
+      <div class="val-card"><div class="val-icon">❤️</div><div class="val-title">Compassion</div><div class="val-desc">Showing empathy, kindness, and care for every member of our community.</div></div>
+      <div class="val-card"><div class="val-icon">🤲</div><div class="val-title">Collaboration</div><div class="val-desc">Working together, sharing knowledge, and achieving more as a united team.</div></div>
+      <div class="val-card"><div class="val-icon">🌿</div><div class="val-title">Sustainability</div><div class="val-desc">Caring for our environment and building a better future for generations to come.</div></div>
+      <div class="val-card"><div class="val-icon">🌍</div><div class="val-title">Global Citizenship</div><div class="val-desc">Developing culturally aware leaders ready to contribute and lead globally.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES GALLERY -->
+<section class="section" id="facilities">
+  <div class="section-inner">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Campus & Facilities</div>
+      <h2 class="sec-title">A Modern Campus for <em>Inspired</em> Learning</h2>
+      <div class="sec-line"></div>
+      <p class="sec-sub">State-of-the-art spaces designed to support creativity, discovery, sport, and excellence at every level.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item wide"><div class="gallery-img g1">🖥️</div><div class="gallery-label">Smart Classrooms</div></div>
+      <div class="gallery-item"><div class="gallery-img g2">🔬</div><div class="gallery-label">Science Laboratories</div></div>
+      <div class="gallery-item"><div class="gallery-img g3">🤖</div><div class="gallery-label">Innovation & Robotics Lab</div></div>
+      <div class="gallery-item wide"><div class="gallery-img g4">📚</div><div class="gallery-label">Library & Learning Centre</div></div>
+      <div class="gallery-item"><div class="gallery-img g5">⚽</div><div class="gallery-label">Sports Fields</div></div>
+      <div class="gallery-item"><div class="gallery-img g6">🏃</div><div class="gallery-label">Indoor Sports Hall</div></div>
+      <div class="gallery-item"><div class="gallery-img g7">🎨</div><div class="gallery-label">Creative Arts Studio</div></div>
+      <div class="gallery-item"><div class="gallery-img g8">🌱</div><div class="gallery-label">Early Years Outdoor Areas</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSIONS STRIP -->
+<div class="adm-strip reveal">
+  <div class="adm-strip-text">
+    <div class="adm-eyebrow">Admissions Now Open · Academic Year 2026–2027</div>
+    <div class="adm-title">Now Welcoming Applications for KG1–Grade 5</div>
+    <div class="adm-sub">Opening 30 August 2026 · Ras Al Khaimah, UAE · American Curriculum</div>
+  </div>
+  <div class="adm-strip-actions">
+    <a href="#contact" class="btn-green-solid">Apply for a Place</a>
+    <a href="#contact" class="btn-white-outline">Book a School Tour</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Get in Touch</div>
+      <h2 class="sec-title">Begin Your <em>Bloom</em> Journey</h2>
+      <div class="sec-line"></div>
+      <p class="sec-sub">We warmly welcome families who share our vision. Reach out to learn more or arrange a personal campus visit.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <div>
+        <div class="contact-map">🗺️</div>
+        <div style="margin-top:2rem">
+          <div class="contact-detail"><div class="c-icon">📍</div><div><p class="c-label">Address</p><p class="c-val">Ras Al Khaimah, United Arab Emirates</p></div></div>
+          <div class="contact-detail"><div class="c-icon">📞</div><div><p class="c-label">Phone</p><p class="c-val">+971 XX XXX XXXX</p></div></div>
+          <div class="contact-detail"><div class="c-icon">✉️</div><div><p class="c-label">Email</p><p class="c-val">admissions@bloomprivateschool.ae</p></div></div>
+          <div class="contact-detail"><div class="c-icon">🌐</div><div><p class="c-label">Website</p><p class="c-val">www.bloomprivateschool.ae</p></div></div>
+          <div class="contact-detail"><div class="c-icon">⏰</div><div><p class="c-label">Office Hours</p><p class="c-val">Sunday – Thursday, 7:30am – 4:00pm</p></div></div>
+        </div>
+      </div>
+      <div>
+        <form class="contact-form" onsubmit="handleSubmit(event)" id="contactForm">
+          <div class="form-row">
+            <div class="fg"><label class="fl">First Name</label><input class="fi" type="text" placeholder="Your first name"/></div>
+            <div class="fg"><label class="fl">Last Name</label><input class="fi" type="text" placeholder="Your last name"/></div>
+          </div>
+          <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="your@email.com"/></div>
+          <div class="fg"><label class="fl">Phone Number</label><input class="fi" type="tel" placeholder="+971 xx xxx xxxx"/></div>
+          <div class="fg">
+            <label class="fl">Year Group of Interest</label>
+            <select class="fs">
+              <option value="">Select a year group</option>
+              <option>Early Years — KG1</option>
+              <option>Early Years — KG2</option>
+              <option>Elementary School (Grades 1–5)</option>
+              <option>Middle School (Grades 6–8)</option>
+              <option>High School (Grades 9–12)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl">How Can We Help?</label>
+            <select class="fs">
+              <option value="">Select enquiry type</option>
+              <option>General Information</option>
+              <option>Admissions Enquiry</option>
+              <option>Book a School Tour</option>
+              <option>Fees & Scholarships</option>
+            </select>
+          </div>
+          <div class="fg"><label class="fl">Message</label><textarea class="ft" placeholder="Tell us about your child and any questions you have…"></textarea></div>
+          <button type="submit" class="f-sub">Send Enquiry →</button>
+        </form>
+        <div class="success-msg" id="successMsg">
+          <p>Thank you for reaching out to Bloom.</p>
+          <p>Our Admissions team will be in touch within 2 working days. We look forward to welcoming your family.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-brand-logo">
+        <img src="logo.png" alt="Bloom Logo"/>
+        <div><div class="f-brand-name">BLOOM</div><div class="f-brand-sub">American Int. School</div></div>
+      </div>
+      <p class="f-desc">Building Lifelong Opportunities for Outstanding Minds. Opening August 2026 in Ras Al Khaimah, UAE.</p>
+      <div class="f-socials">
+        <a href="#" class="f-social" aria-label="Facebook">f</a>
+        <a href="#" class="f-social" aria-label="Instagram">in</a>
+        <a href="#" class="f-social" aria-label="Twitter">𝕏</a>
+        <a href="#" class="f-social" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-col-title">Our School</div>
+      <div class="f-col-links">
+        <a href="#about">About Us</a>
+        <a href="#principal">Principal's Welcome</a>
+        <a href="#values">Our Values</a>
+        <a href="#facilities">Campus & Facilities</a>
+        <a href="#contact">Contact Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-col-title">Admissions</div>
+      <div class="f-col-links">
+        <a href="#contact">Admissions Process</a>
+        <a href="#contact">Enquire Now</a>
+        <a href="#contact">Book a School Tour</a>
+        <a href="#contact">Academic Calendar</a>
+        <a href="#contact">Fees & Scholarships</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-col-title">Programmes</div>
+      <div class="f-col-links">
+        <a href="#programmes">Early Years (KG1–KG2)</a>
+        <a href="#programmes">Elementary (Gr. 1–5)</a>
+        <a href="#programmes">Middle School (Gr. 6–8)</a>
+        <a href="#programmes">High School (Gr. 9–12)</a>
+        <a href="#facilities">Facilities</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <div class="f-copy">© 2026 Bloom American International School, Ras Al Khaimah, UAE. All rights reserved.</div>
+    <div class="f-policies">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── HERO SLIDER
+let cur=0,tot=3,timer;
+function moveSlide(d){goSlide((cur+d+tot)%tot)}
+function goSlide(n){
+  cur=n;
+  document.getElementById('heroSlides').style.transform=`translateX(-${cur*100}%)`;
+  document.querySelectorAll('#heroDots .dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+  resetTimer();
+}
+function resetTimer(){clearInterval(timer);timer=setInterval(()=>moveSlide(1),5000)}
+resetTimer();
+
+// ── TESTIMONIAL SLIDER
+let tc=0,tt=3;
+function goTest(n){
+  tc=n;
+  document.getElementById('testSlides').style.transform=`translateX(-${tc*100}%)`;
+  document.querySelectorAll('#testControls .test-dot').forEach((d,i)=>d.classList.toggle('active',i===tc));
+}
+setInterval(()=>goTest((tc+1)%tt),6000);
+
+// ── PROGRAMME TABS
+function showProg(idx,btn){
+  document.querySelectorAll('.prog-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.prog-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('pane-'+idx).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── SCROLL REVEAL
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target)}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ── FORM
+function handleSubmit(e){
+  e.preventDefault();
+  document.getElementById('contactForm').style.display='none';
+  document.getElementById('successMsg').style.display='block';
+}
+
+// ── MOBILE MENU
+document.getElementById('menuBtn').addEventListener('click',()=>{
+  const m=document.querySelector('.nav-menu');
+  m.style.cssText=m.style.display==='flex'?'':
+    'display:flex;position:fixed;top:72px;left:0;right:0;bottom:0;flex-direction:column;background:#fff;padding:2rem 5%;gap:0;overflow-y:auto;z-index:300;border-top:1px solid #E2E8F0;height:calc(100vh - 72px)';
+  if(m.style.display==='flex'){
+    m.querySelectorAll('.nav-link').forEach(a=>{a.style.cssText='height:auto;padding:1rem 0;border-bottom:1px solid #E2E8F0;border-left:none;display:block'});
+    m.querySelectorAll('.dropdown').forEach(d=>d.style.cssText='position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border-top:none;padding-left:1rem;display:none');
+  }
+});
+</script>
+</body>
+</html>
